@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.error.ErrorMessage;
 
 public class RacingCarController {
     public void playRacing() {
@@ -10,6 +11,13 @@ public class RacingCarController {
     private String readInput(InputMessage inputMessage) {
         System.out.println(inputMessage.content);
         String inputString =  Console.readLine();
+        validateInput(inputString);
         return inputString;
+    }
+
+    private void validateInput(String inputString) {
+        if (inputString == null || inputString.isBlank()) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_INPUT_MESSAGE.content);
+        }
     }
 }
