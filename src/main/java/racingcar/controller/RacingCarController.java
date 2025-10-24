@@ -4,10 +4,19 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.CarNameParser;
 import racingcar.domain.Cars;
 import racingcar.error.ErrorMessage;
+import racingcar.view.InputMessage;
+import racingcar.view.View;
 
 public class RacingCarController {
+    private final View view;
+
+    public RacingCarController(View view) {
+        this.view = view;
+    }
+
     public void playRacing() {
-        String carNameCsv = readInput(InputMessage.CAR_NAME_INPUT_MESSAGE);
+        view.showMessage(InputMessage.CAR_NAME_INPUT_MESSAGE);
+        String carNameCsv = readInput();
 
         CarNameParser carNameParser = new CarNameParser();
 
@@ -15,8 +24,7 @@ public class RacingCarController {
         Cars cars = new Cars(carNameArray);
     }
 
-    private String readInput(InputMessage inputMessage) {
-        System.out.println(inputMessage.content);
+    private String readInput() {
         String inputString =  Console.readLine();
         validateInput(inputString);
         return inputString;
