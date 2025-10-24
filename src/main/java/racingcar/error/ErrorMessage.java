@@ -1,7 +1,7 @@
 package racingcar.error;
 
 public enum ErrorMessage {
-    INVALID_INPUT_MESSAGE("잘못된 입력입니다."),
+    INVALID_INPUT("잘못된 입력입니다."),
     ;
 
     public final String content;
