@@ -7,7 +7,7 @@ public class Racing {
         this.cars = cars;
     }
 
-    public String start(Integer numberOfAttempts) {
+    public void start(Integer numberOfAttempts) {
         for (int i = 0; i < numberOfAttempts; i++) {
             playRound(cars);
         }
