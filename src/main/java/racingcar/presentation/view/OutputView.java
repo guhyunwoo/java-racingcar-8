@@ -1,8 +1,8 @@
-package racingcar.view;
+package racingcar.presentation.view;
 
-import racingcar.dto.RacingCarInfo;
-import racingcar.dto.RacingRoundInfo;
-import racingcar.dto.RacingResponse;
+import racingcar.application.dto.RacingCarInfo;
+import racingcar.application.dto.RacingRoundInfo;
+import racingcar.application.dto.RacingResponse;
 
 public class OutputView {
     public void showResponse(RacingResponse racingResponse) {

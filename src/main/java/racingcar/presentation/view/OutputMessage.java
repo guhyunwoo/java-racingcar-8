@@ -1,4 +1,4 @@
-package racingcar.view;
+package racingcar.presentation.view;
 
 public enum OutputMessage {
     RACING_MESSAGE("실행결과"),

@@ -1,4 +1,4 @@
-package racingcar.util;
+package racingcar.util.converter;
 
 
 import racingcar.error.ErrorMessage;

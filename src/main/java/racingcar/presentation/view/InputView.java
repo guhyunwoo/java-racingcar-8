@@ -1,10 +1,10 @@
-package racingcar.view;
+package racingcar.presentation.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Cars;
 import racingcar.error.ErrorMessage;
-import racingcar.util.StringToCarsConverter;
-import racingcar.util.StringToPositiveIntegerConverter;
+import racingcar.util.converter.StringToCarsConverter;
+import racingcar.util.converter.StringToPositiveIntegerConverter;
 
 public class InputView {
     public Cars readCars() {

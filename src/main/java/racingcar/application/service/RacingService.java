@@ -1,20 +1,17 @@
-package racingcar.domain;
+package racingcar.application.service;
 
-import racingcar.dto.RacingRoundInfo;
-import racingcar.dto.RacingCarInfo;
-import racingcar.dto.RacingResponse;
+import racingcar.application.dto.RacingCarInfo;
+import racingcar.application.dto.RacingResponse;
+import racingcar.application.dto.RacingRoundInfo;
+import racingcar.domain.Car;
+import racingcar.domain.Cars;
+import racingcar.domain.RandomNumber;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Racing {
-    private final Cars cars;
-
-    public Racing(Cars cars) {
-        this.cars = cars;
-    }
-
-    public RacingResponse start(Integer numberOfAttempts) {
+public class RacingService {
+    public RacingResponse start(Integer numberOfAttempts, Cars cars) {
         List<RacingRoundInfo> racingRoundInfos = new ArrayList<>();
         for (int i = 0; i < numberOfAttempts; i++) {
             racingRoundInfos.add(playRound(cars));
