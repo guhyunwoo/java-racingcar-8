@@ -15,4 +15,8 @@ public class Car {
         }
         return raceProgress.getPosition();
     }
+
+    public String getName() {
+        return carInfo.getName();
+    }
 }

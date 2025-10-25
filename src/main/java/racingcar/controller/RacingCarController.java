@@ -1,29 +1,41 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.CarNameParser;
 import racingcar.domain.Cars;
+import racingcar.domain.Racing;
+import racingcar.dto.RacingResponse;
 import racingcar.error.ErrorMessage;
+import racingcar.util.Converter;
+import racingcar.util.StringToCarsConverter;
+import racingcar.util.StringToIntegerConverter;
 import racingcar.view.InputMessage;
+import racingcar.view.RacingResponseView;
 import racingcar.view.View;
 
 public class RacingCarController {
     private final View view;
+    private final RacingResponseView racingResponseView;
 
-    public RacingCarController(View view) {
+    public RacingCarController(View view, RacingResponseView racingResponseView) {
         this.view = view;
+        this.racingResponseView = racingResponseView;
     }
 
     public void playRacing() {
         view.showMessage(InputMessage.CAR_NAME_INPUT_MESSAGE);
         String carNameCsv = readInput();
         view.showMessage(InputMessage.NUMBER_OF_ATTEMPTS_INPUT_MESSAGE);
-        String numberOfAttempts = readInput();
+        String numberOfAttemptsInput = readInput();
 
-        CarNameParser carNameParser = new CarNameParser();
+        Converter<String, Cars> carsConverter = new StringToCarsConverter();
+        Converter<String, Integer> integerConverter = new StringToIntegerConverter();
 
-        String[] carNameArray = carNameParser.parseCarName(carNameCsv);
-        Cars cars = new Cars(carNameArray);
+        Cars cars = carsConverter.convert(carNameCsv);
+        Integer numberOfAttempts = integerConverter.convert(numberOfAttemptsInput);
+
+        Racing racing = new Racing(cars);
+        RacingResponse racingResponse = racing.start(numberOfAttempts);
+        racingResponseView.showResponse(racingResponse);
     }
 
     private String readInput() {

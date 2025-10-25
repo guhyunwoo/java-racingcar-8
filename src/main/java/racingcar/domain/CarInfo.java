@@ -25,4 +25,8 @@ public class CarInfo {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_EMPTY.content);
         }
     }
+
+    public String getName() {
+        return name;
+    }
 }
