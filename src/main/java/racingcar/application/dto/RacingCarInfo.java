@@ -1,7 +1,4 @@
 package racingcar.application.dto;
 
-public record RacingCarInfo(
-        String carName,
-        String position
-) {
+public record RacingCarInfo(String carName, String position) {
 }

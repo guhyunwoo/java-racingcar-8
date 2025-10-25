@@ -5,7 +5,7 @@ import racingcar.error.ErrorMessage;
 public class CarName {
     private final String name;
 
-    private final Integer MIN_NAME_LENGTH =  5;
+    private final Integer MIN_NAME_LENGTH = 5;
 
     public CarName(String name) {
         validateNameLength(name);

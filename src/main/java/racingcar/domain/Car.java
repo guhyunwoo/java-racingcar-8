@@ -10,7 +10,7 @@ public class Car {
     }
 
     public String tryAdvance(RandomNumber randomNumber) {
-        if(randomNumber.isMoreThanCriterion()) {
+        if (randomNumber.isMoreThanCriterion()) {
             this.position = position.advance();
         }
         return position.getValue();
