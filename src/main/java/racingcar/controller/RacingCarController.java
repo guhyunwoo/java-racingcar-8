@@ -18,6 +18,7 @@ public class RacingCarController {
         view.showMessage(InputMessage.CAR_NAME_INPUT_MESSAGE);
         String carNameCsv = readInput();
         view.showMessage(InputMessage.NUMBER_OF_ATTEMPTS_INPUT_MESSAGE);
+        String numberOfAttempts = readInput();
 
         CarNameParser carNameParser = new CarNameParser();
 
