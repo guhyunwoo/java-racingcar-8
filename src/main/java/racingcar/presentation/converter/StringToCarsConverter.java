@@ -1,4 +1,4 @@
-package racingcar.util.converter;
+package racingcar.presentation.converter;
 
 import racingcar.domain.CarNameParser;
 import racingcar.domain.Cars;
