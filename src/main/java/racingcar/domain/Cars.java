@@ -11,9 +11,25 @@ public class Cars implements Iterable<Car> {
         this.cars = carNameArrayToCars(carNameArray);
     }
 
+    public Cars(List<Car> cars) {
+        this.cars = cars;
+    }
+
     private List<Car> carNameArrayToCars(String[] carNameArray) {
         List<CarInfo> carInfoList = Arrays.stream(carNameArray).map(CarInfo::new).toList();
         return carInfoList.stream().map(Car::new).toList();
+    }
+
+    public List<String> findWinners() {
+        Integer maxDistance = cars.stream()
+                .mapToInt(Car::getRacingDistance)
+                .max()
+                .orElseThrow(IllegalArgumentException::new);
+
+        return cars.stream()
+                .filter(car -> car.getRacingDistance() == maxDistance)
+                .map(Car::getName)
+                .toList();
     }
 
     @Override

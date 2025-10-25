@@ -19,4 +19,12 @@ public class Car {
     public String getName() {
         return carInfo.getName();
     }
+
+    public Integer getRacingDistance() {
+        return getPosition().length();
+    }
+
+    private String getPosition() {
+        return raceProgress.getPosition();
+    }
 }

@@ -19,7 +19,8 @@ public class Racing {
         for (int i = 0; i < numberOfAttempts; i++) {
             racingRoundInfos.add(playRound(cars));
         }
-        return new RacingResponse(racingRoundInfos);
+        List<String> winners = cars.findWinners();
+        return new RacingResponse(racingRoundInfos, winners);
     }
 
     private RacingRoundInfo playRound(Cars cars) {
