@@ -7,7 +7,7 @@ import racingcar.dto.RacingResponse;
 import racingcar.error.ErrorMessage;
 import racingcar.util.Converter;
 import racingcar.util.StringToCarsConverter;
-import racingcar.util.StringToIntegerConverter;
+import racingcar.util.StringToPositiveIntegerConverter;
 import racingcar.view.InputMessage;
 import racingcar.view.RacingResponseView;
 import racingcar.view.View;
@@ -28,7 +28,7 @@ public class RacingCarController {
         String numberOfAttemptsInput = readInput();
 
         Converter<String, Cars> carsConverter = new StringToCarsConverter();
-        Converter<String, Integer> integerConverter = new StringToIntegerConverter();
+        Converter<String, Integer> integerConverter = new StringToPositiveIntegerConverter();
 
         Cars cars = carsConverter.convert(carNameCsv);
         Integer numberOfAttempts = integerConverter.convert(numberOfAttemptsInput);

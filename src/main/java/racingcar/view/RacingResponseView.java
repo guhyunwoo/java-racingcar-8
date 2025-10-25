@@ -6,7 +6,7 @@ import racingcar.dto.RacingResponse;
 
 public class RacingResponseView {
     public void showResponse(RacingResponse racingResponse) {
-        System.out.println(OutputMessage.RACING_MESSAGE);
+        System.out.println(OutputMessage.RACING_MESSAGE.content);
         racingResponse.racingRoundInfoResponse()
                 .forEach(
                         racingRoundInfo -> {
