@@ -20,6 +20,10 @@ public class Car {
         return carName.getName();
     }
 
+    public Boolean isRacingDistanceEquals(Integer distance) {
+        return getRacingDistance().equals(distance);
+    }
+
     public Integer getRacingDistance() {
         return getPosition().length();
     }

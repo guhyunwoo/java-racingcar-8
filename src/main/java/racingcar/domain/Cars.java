@@ -23,7 +23,7 @@ public class Cars implements Iterable<Car> {
                 .orElseThrow(IllegalArgumentException::new);
 
         return cars.stream()
-                .filter(car -> car.getRacingDistance() == maxDistance)
+                .filter(car -> car.isRacingDistanceEquals(maxDistance))
                 .map(Car::getName)
                 .toList();
     }
