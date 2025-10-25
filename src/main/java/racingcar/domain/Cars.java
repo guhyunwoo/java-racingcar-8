@@ -12,8 +12,8 @@ public class Cars implements Iterable<Car> {
     }
 
     private List<Car> carNameArrayToCars(String[] carNameArray) {
-        List<CarInfo> carInfoList = Arrays.stream(carNameArray).map(CarInfo::new).toList();
-        return carInfoList.stream().map(Car::new).toList();
+        List<CarName> carNameList = Arrays.stream(carNameArray).map(CarName::new).toList();
+        return carNameList.stream().map(Car::new).toList();
     }
 
     public List<String> findWinners() {

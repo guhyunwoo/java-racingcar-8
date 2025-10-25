@@ -1,23 +1,23 @@
 package racingcar.domain;
 
 public class Car {
-    private final CarInfo carInfo;
-    private final RaceProgress raceProgress;
+    private final CarName carName;
+    private Position position;
 
-    public Car(CarInfo carInfo) {
-        this.carInfo = carInfo;
-        this.raceProgress = new RaceProgress();
+    public Car(CarName carName) {
+        this.carName = carName;
+        this.position = Position.start();
     }
 
     public String tryAdvance(RandomNumber randomNumber) {
         if(randomNumber.isMoreThanCriterion()) {
-            raceProgress.advance();
+            this.position = position.advance();
         }
-        return raceProgress.getPosition();
+        return position.getValue();
     }
 
     public String getName() {
-        return carInfo.getName();
+        return carName.getName();
     }
 
     public Integer getRacingDistance() {
@@ -25,6 +25,6 @@ public class Car {
     }
 
     private String getPosition() {
-        return raceProgress.getPosition();
+        return position.getValue();
     }
 }

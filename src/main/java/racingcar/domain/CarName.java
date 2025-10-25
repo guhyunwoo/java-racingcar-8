@@ -2,12 +2,12 @@ package racingcar.domain;
 
 import racingcar.error.ErrorMessage;
 
-public class CarInfo {
+public class CarName {
     private final String name;
 
     private final Integer MIN_NAME_LENGTH =  5;
 
-    public CarInfo(String name) {
+    public CarName(String name) {
         validateNameLength(name);
         validateNameNotEmpty(name);
 
