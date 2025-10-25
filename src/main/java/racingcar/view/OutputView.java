@@ -4,7 +4,7 @@ import racingcar.dto.RacingCarInfo;
 import racingcar.dto.RacingRoundInfo;
 import racingcar.dto.RacingResponse;
 
-public class RacingResponseView {
+public class OutputView {
     public void showResponse(RacingResponse racingResponse) {
         System.out.println(OutputMessage.RACING_MESSAGE.content);
         racingResponse.racingRoundInfoResponse()

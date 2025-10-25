@@ -1,52 +1,26 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Cars;
 import racingcar.domain.Racing;
 import racingcar.dto.RacingResponse;
-import racingcar.error.ErrorMessage;
-import racingcar.util.Converter;
-import racingcar.util.StringToCarsConverter;
-import racingcar.util.StringToPositiveIntegerConverter;
-import racingcar.view.InputMessage;
-import racingcar.view.RacingResponseView;
-import racingcar.view.View;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingCarController {
-    private final View view;
-    private final RacingResponseView racingResponseView;
+    private final InputView inputView;
+    private final OutputView outputView;
 
-    public RacingCarController(View view, RacingResponseView racingResponseView) {
-        this.view = view;
-        this.racingResponseView = racingResponseView;
+    public RacingCarController(InputView inputView, OutputView outputView) {
+        this.inputView = inputView;
+        this.outputView = outputView;
     }
 
     public void playRacing() {
-        view.showMessage(InputMessage.CAR_NAME_INPUT_MESSAGE);
-        String carNameCsv = readInput();
-        view.showMessage(InputMessage.NUMBER_OF_ATTEMPTS_INPUT_MESSAGE);
-        String numberOfAttemptsInput = readInput();
-
-        Converter<String, Cars> carsConverter = new StringToCarsConverter();
-        Converter<String, Integer> integerConverter = new StringToPositiveIntegerConverter();
-
-        Cars cars = carsConverter.convert(carNameCsv);
-        Integer numberOfAttempts = integerConverter.convert(numberOfAttemptsInput);
+        Cars cars = inputView.readCars();
+        Integer numberOfAttempts = inputView.readAttempts();
 
         Racing racing = new Racing(cars);
         RacingResponse racingResponse = racing.start(numberOfAttempts);
-        racingResponseView.showResponse(racingResponse);
-    }
-
-    private String readInput() {
-        String inputString =  Console.readLine();
-        validateInput(inputString);
-        return inputString;
-    }
-
-    private void validateInput(String inputString) {
-        if (inputString == null || inputString.isBlank()) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_INPUT.content);
-        }
+        outputView.showResponse(racingResponse);
     }
 }
