@@ -1,6 +1,5 @@
 package racingcar.presentation.converter;
 
-import racingcar.domain.CarNameParser;
 import racingcar.domain.Cars;
 
 public class StringToCarsConverter implements Converter<String, Cars> {

@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.presentation.converter;
 
 public class CarNameParser {
     private final String DELIMITER = ",";
