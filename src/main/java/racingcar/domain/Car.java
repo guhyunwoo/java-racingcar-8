@@ -9,8 +9,10 @@ public class Car {
         this.raceProgress = new RaceProgress();
     }
 
-    public String advance() {
-        raceProgress.advance();
+    public String tryAdvance(RandomNumber randomNumber) {
+        if(randomNumber.isMoreThanCriterion()) {
+            raceProgress.advance();
+        }
         return raceProgress.getPosition();
     }
 }

@@ -9,13 +9,14 @@ public class Racing {
 
     public String start(Integer numberOfAttempts) {
         for (int i = 0; i < numberOfAttempts; i++) {
-            advance(cars);
+            playRound(cars);
         }
     }
 
-    private void advance(Cars cars) {
+    private void playRound(Cars cars) {
         for (Car car : cars) {
             RandomNumber randomNumber = new RandomNumber();
+            car.tryAdvance(randomNumber);
         }
     }
 }
