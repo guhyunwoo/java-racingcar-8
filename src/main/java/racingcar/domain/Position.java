@@ -13,7 +13,7 @@ public class Position {
     }
 
     public Position advance() {
-        return new Position(ADVANCED_POSITION_EXPRESSION);
+        return new Position(this.value + ADVANCED_POSITION_EXPRESSION);
     }
 
     public String getValue() {
