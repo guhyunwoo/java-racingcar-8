@@ -27,6 +27,20 @@ class PositionTest {
     }
 
     @Test
+    void 위치_3회_전진() {
+        // given
+        Position position = Position.start();
+
+        // when
+        Position advancedPosition = position.advance();
+        advancedPosition =  advancedPosition.advance();
+        advancedPosition = advancedPosition.advance();
+
+        // then
+        assertThat(advancedPosition.getValue()).isEqualTo("---");
+    }
+
+    @Test
     void 시작_위치는_불변() {
         // given
         Position position = Position.start();
