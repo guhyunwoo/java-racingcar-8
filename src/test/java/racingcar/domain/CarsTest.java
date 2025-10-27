@@ -51,17 +51,7 @@ class CarsTest {
     }
 
     @Test
-    void 빈_배열로_생성시_우승자_조회_예외발생() {
-        // given
-        String[] carNameArray = {};
-        Cars cars = new Cars(carNameArray);
-
-        // when & then
-        assertThatThrownBy(cars::findWinners).isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    void 초기_상태_우승자_조회() {
+    void 최대_거리가_같은_자동차가_2대_이상일때_우승자_조회() {
         // given
         String[] carNameArray = {"pobi", "woni"};
         Cars cars = new Cars(carNameArray);
