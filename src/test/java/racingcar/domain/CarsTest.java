@@ -25,19 +25,13 @@ class CarsTest {
     }
 
     @Test
-    void 단일_자동차로_목록_생성() {
+    void 자동차가_2대_미만으로_생성되면_예외발생() {
         // given
         List<String> carNames = List.of("pobi");
 
-        // when
-        Cars cars = new Cars(carNames);
-
-        // then
-        int count = 0;
-        for (Car car : cars) {
-            count++;
-        }
-        assertThat(count).isEqualTo(1);
+        // when & then
+        assertThatThrownBy(() -> new Cars(carNames))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
