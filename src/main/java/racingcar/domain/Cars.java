@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.error.ErrorMessage;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -8,7 +10,9 @@ public class Cars implements Iterable<Car> {
     private final List<Car> cars;
 
     public Cars(List<String> carNames) {
-        this.cars = carNameListToCars(carNames);
+        List<Car> cars = carNameListToCars(carNames);
+        validateCars(cars);
+        this.cars = cars;
     }
 
     private List<Car> carNameListToCars(List<String> carNames) {
@@ -32,6 +36,12 @@ public class Cars implements Iterable<Car> {
             }
         }
         return winners;
+    }
+
+    private void validateCars(List<Car> cars) {
+        if(cars.size() < 2) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_CARS_COUNT.content);
+        }
     }
 
     @Override
