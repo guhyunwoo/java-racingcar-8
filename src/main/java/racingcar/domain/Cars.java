@@ -8,10 +8,10 @@ public class Cars implements Iterable<Car> {
     private final List<Car> cars;
 
     public Cars(List<String> carNames) {
-        this.cars = carNameArrayToCars(carNames);
+        this.cars = carNameListToCars(carNames);
     }
 
-    private List<Car> carNameArrayToCars(List<String> carNames) {
+    private List<Car> carNameListToCars(List<String> carNames) {
         List<CarName> carNameList = carNames.stream().map(CarName::new).toList();
         return carNameList.stream().map(Car::new).toList();
     }
