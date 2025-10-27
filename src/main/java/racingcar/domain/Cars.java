@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -17,15 +18,21 @@ public class Cars implements Iterable<Car> {
     }
 
     public List<String> findWinners() {
-        Integer maxDistance = cars.stream()
-                .mapToInt(Car::getRacingDistance)
-                .max()
-                .orElseThrow(IllegalArgumentException::new);
+        int maxDistance = 0;
+        List<String> winners = new ArrayList<>();
 
-        return cars.stream()
-                .filter(car -> car.isRacingDistanceEquals(maxDistance))
-                .map(Car::getName)
-                .toList();
+        for (Car car : cars) {
+            int distance = car.getRacingDistance();
+
+            if (car.isRacingDistanceBiggerThan(maxDistance)) {
+                maxDistance = distance;
+                winners.clear();
+                winners.add(car.getName());
+            } else if (car.isRacingDistanceEquals(maxDistance)) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
     }
 
     @Override

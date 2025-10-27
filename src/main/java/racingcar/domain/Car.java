@@ -28,6 +28,10 @@ public class Car {
         return getPosition().length();
     }
 
+    public boolean isRacingDistanceBiggerThan(Integer number) {
+        return getRacingDistance() > number;
+    }
+
     private String getPosition() {
         return position.getValue();
     }
