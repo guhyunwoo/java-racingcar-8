@@ -11,10 +11,10 @@ class CarsTest {
     @Test
     void 자동차_목록_생성() {
         // given
-        String[] carNameArray = {"pobi", "woni", "jun"};
+        List<String> carNames = List.of("pobi", "woni", "jun");
 
         // when
-        Cars cars = new Cars(carNameArray);
+        Cars cars = new Cars(carNames);
 
         // then
         int count = 0;
@@ -27,10 +27,10 @@ class CarsTest {
     @Test
     void 단일_자동차로_목록_생성() {
         // given
-        String[] carNameArray = {"pobi"};
+        List<String> carNames = List.of("pobi");
 
         // when
-        Cars cars = new Cars(carNameArray);
+        Cars cars = new Cars(carNames);
 
         // then
         int count = 0;
@@ -43,18 +43,18 @@ class CarsTest {
     @Test
     void 자동차_이름이_5자_초과하면_예외발생() {
         // given
-        String[] carNameArray = {"pobi", "javaji"};
+        List<String> carNames = List.of("pobi", "javaji");
 
         // when & then
-        assertThatThrownBy(() -> new Cars(carNameArray))
+        assertThatThrownBy(() -> new Cars(carNames))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void 최대_거리가_같은_자동차가_2대_이상일때_우승자_조회() {
         // given
-        String[] carNameArray = {"pobi", "woni"};
-        Cars cars = new Cars(carNameArray);
+        List<String> carNames = List.of("pobi", "woni");
+        Cars cars = new Cars(carNames);
 
         // when
         List<String> winners = cars.findWinners();
