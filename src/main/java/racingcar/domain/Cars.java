@@ -1,19 +1,18 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
 public class Cars implements Iterable<Car> {
     private final List<Car> cars;
 
-    public Cars(String[] carNameArray) {
-        this.cars = carNameArrayToCars(carNameArray);
+    public Cars(List<String> carNames) {
+        this.cars = carNameArrayToCars(carNames);
     }
 
-    private List<Car> carNameArrayToCars(String[] carNameArray) {
-        List<CarName> carNameList = Arrays.stream(carNameArray).map(CarName::new).toList();
+    private List<Car> carNameArrayToCars(List<String> carNames) {
+        List<CarName> carNameList = carNames.stream().map(CarName::new).toList();
         return carNameList.stream().map(Car::new).toList();
     }
 
